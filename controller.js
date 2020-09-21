@@ -1,15 +1,15 @@
 const fetch = require('node-fetch');
 const open = require('open');
 
-function getSongQuery(query) {
-    fetch("https://searchly.asuarez.dev/api/v1/song/search?query=" + query) //QUERY CAN BE ANYTHING
-        .then(response => response.json())
-        .then(data => {
-            let randomNum = Math.floor(Math.random() * (data.response.results.length))
-            getAppleJson(data.response.results[randomNum].name.split(' ').join('+'))
-        })
-        .catch(err => console.log(err));
-}
+// function getSongQuery(query) {
+//     fetch("https://searchly.asuarez.dev/api/v1/song/search?query=" + query) //QUERY CAN BE ANYTHING
+//         .then(response => response.json())
+//         .then(data => {
+//             let randomNum = Math.floor(Math.random() * (data.response.results.length))
+//             getAppleJson(data.response.results[randomNum].name.split(' ').join('+'))
+//         })
+//         .catch(err => console.log(err));
+// }
 
 // function getSongId(songId) {
 //     fetch("https://searchly.asuarez.dev/api/v1/similarity/by_song?song_id=" + songId) //SONG ID NEEDED
@@ -18,14 +18,25 @@ function getSongQuery(query) {
 //         .catch(err => console.log(err));
 // }
 
-function getAppleJson(song) {
-    fetch("https://itunes.apple.com/search?term=" + song + "&entity=song")
-        .then(response => response.json())
-        .then(data => open(data.results[0].trackViewUrl))
-        .catch(err => console.log(err))
+// function getAppleJson(song) {
+//     fetch("https://itunes.apple.com/search?term=" + song + "&entity=song")
+//         .then(response => response.json())
+//         .then(data => open(data.results[0].trackViewUrl))
+//         .catch(err => console.log(err))
+// }
+
+function getSongQuery(query) {
+        fetch("https://itunes.apple.com/search?term=" + query + "&entity=song")
+            .then(response => response.json())
+            .then(data => {
+                let randomNum = Math.floor((Math.random() * (data.results.length)) / 2)
+                open(data.results[randomNum].trackViewUrl)
+            })
+            .catch(err => console.log(err))
+
 }
 
-getSongQuery('the new sad')
+// getSongQuery('the new sad')
 
 module.exports = {
     getSongQuery,

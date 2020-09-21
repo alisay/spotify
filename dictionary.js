@@ -1,13 +1,16 @@
-const fetch = require('node-fetch');
-const api = require('./config.js');
+const key = require('./config.js');
+const Backend = require('./backend.js');
 
+const antonymFinder = (word)=>{
+    const thesaurus = new Backend();
+    thesaurus.setBaseUrl("https://www.dictionaryapi.com/api/v3/references/thesaurus/json")
+    return thesaurus.get(`/${word}?key=${key.api}`)
+    .then(data=> console.log(data[0]["meta"]["ants"]))
+    .catch(console.log);
+}
 
-//given a word, it finds the opposite
-const antonymFinder = (word) =>{
-    fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${api.api}`)
-        .then(response=>response.json())
-        .then(data=>console.log(data))
-        .catch(err => console.log(err));
-    }
+// const showAntonyms = ()=>{
 
-antonymFinder("sad");
+// }
+
+console.log(antonymFinder("happy"));

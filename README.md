@@ -1,1 +1,1 @@
-Hi Brandon 
+We are making a node terminal app which takes input from a user as to their mood and returns a song/songs related to their mood using searchly and itunes api

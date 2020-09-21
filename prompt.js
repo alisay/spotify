@@ -20,7 +20,7 @@ const ask = () =>{
           message: 'Do you want to feel the opposite or stay the same?',
           choices: ["same", "different"],
           validate: function(value) {
-            if (value) {
+            if (value.length>0) {
               return true;
             } else {
               return 'Just answer the question, buddy.';

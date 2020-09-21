@@ -25,4 +25,8 @@ function getAppleJson(song) {
         .catch(err => console.log(err))
 }
 
-getSongQuery('happy')
+// getSongQuery('the new sad')
+
+module.exports = {
+    getSongQuery,
+}

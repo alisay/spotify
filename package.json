@@ -1,0 +1,27 @@
+{
+  "name": "hackathon",
+  "version": "1.0.0",
+  "description": "We are making a node terminal app, which takes input from a user as to their mood and returns one/many song that suits their mood/will change their mood.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisay/spotify.git"
+  },
+  "keywords": [
+    "music",
+    "moods"
+  ],
+  "author": "alisa blakeney & brandon robertson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alisay/spotify/issues"
+  },
+  "homepage": "https://github.com/alisay/spotify#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}

@@ -11,11 +11,17 @@
     "type": "git",
     "url": "git+https://github.com/alisay/spotify.git"
   },
-  "keywords": ["music", "moods"],
+  "keywords": [
+    "music",
+    "moods"
+  ],
   "author": "alisa blakeney & brandon robertson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/alisay/spotify/issues"
   },
-  "homepage": "https://github.com/alisay/spotify#readme"
+  "homepage": "https://github.com/alisay/spotify#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
 }

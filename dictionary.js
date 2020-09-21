@@ -22,4 +22,4 @@ const showAntonyms = (data)=>{
     }   
 }
 
-antonymFinder("miserable");
+// antonymFinder("miserable");

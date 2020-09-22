@@ -24,7 +24,7 @@ const spellChecker = (words)=>{
 }
 
 const antonymFinder = (word)=>{
-    if(!word){
+    if(word==null){
         word = emotions[Math.floor(Math.random() * (emotions.length-1))]
     }
     const thesaurus = new Backend();

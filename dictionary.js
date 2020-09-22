@@ -1,7 +1,28 @@
 const key = require('./config.js');
 const Backend = require('./backend.js');
+const natural = require('natural');
+const dictionary = require('./emotions.js');
+// const classifier = new natural.BayesClassifier();
+// const tokeniser = new natural.WordTokenizer();
 
-const antonymFinder = (word)=>{
+// console.log(tokeniser.tokenize("I am a sad egg"));
+
+// const stems = "I would prefer to be more abhorrent tbh".tokenizeAndStem();
+// console.log(spellcheck.getCorrections(stems[0],2));
+
+const tokeniser = (sentence)=>{
+    natural.PorterStemmer.attach();
+    return sentence.tokenizeAndStem();
+}
+
+const spellChecker = (words)=>{
+    const emotions = dictionary.dictionary[0]["emotions"]
+    const spellcheck = new natural.Spellcheck(emotions)
+    const moods = spellcheck.getCorrections(words.slice(0, 2),2);
+    return moods[0];
+}
+
+const antonymFinder = (word="sad")=>{
     const thesaurus = new Backend();
     thesaurus.setBaseUrl("https://www.dictionaryapi.com/api/v3/references/thesaurus/json")
     return thesaurus.get(`/${word}?key=${key.api}`)
@@ -21,5 +42,6 @@ const showAntonyms = (data)=>{
         console.log(err);
     }   
 }
+
 
 // antonymFinder("miserable");

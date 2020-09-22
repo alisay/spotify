@@ -24,6 +24,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "inquirer": "^7.3.3",
+    "natural": "^2.1.5",
     "node-fetch": "^2.6.1",
     "open": "^7.2.1"
   }

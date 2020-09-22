@@ -19,7 +19,7 @@ const showAntonyms = (data)=>{
 }
     catch(err){
         console.log(err);
-    }
+    }   
 }
 
-antonymFinder("miserable");
+// antonymFinder("miserable");

@@ -22,7 +22,10 @@
   },
   "homepage": "https://github.com/alisay/spotify#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
     "dotenv": "^8.2.0",
+    "figlet": "^1.5.0",
     "inquirer": "^7.3.3",
     "natural": "^2.1.5",
     "node-fetch": "^2.6.1",

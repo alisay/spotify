@@ -16,17 +16,16 @@ const tokeniser = (sentence)=>{
     natural.PorterStemmer.attach();
     return sentence.tokenizeAndStem();
 }
-
 const spellChecker = (words)=>{
     const spellcheck = new natural.Spellcheck(emotions)
-    const moods = spellcheck.getCorrections(words.slice(0, 2),2);
-    console.log(`your mood is ${moods}`)
+    const moods = spellcheck.getCorrections((words.slice(0, 2)),2);
+    console.log(`Your mood is ${moods[0]}`)
     return moods[0];
 }
 
 const antonymFinder = (word)=>{
     if(!word){
-        const word = emotions[Math.floor((Math.random() * (emotions.length-1)))]
+        word = emotions[Math.floor(Math.random() * (emotions.length-1))]
     }
     const thesaurus = new Backend();
     thesaurus.setBaseUrl("https://www.dictionaryapi.com/api/v3/references/thesaurus/json")
@@ -39,15 +38,15 @@ const antonymFinder = (word)=>{
 const showAntonyms = (data)=>{
     try{
         if(data.length<1){
-        throw new Error("no antonyms")
+        throw "There's no opposite to that feeling"
     }
-    return data[0][0];
+    randomIndex = Math.floor(Math.random() * data.length)
+    return data[randomIndex][(Math.floor(Math.random() * data[randomIndex].length))];
 }
     catch(err){
         console.log(err);
     }   
 }
-
 
 
 

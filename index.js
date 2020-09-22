@@ -13,7 +13,7 @@ const run = async () =>{
         const oppositeEmotion = await antonymFinder(validEmotion)
         controller.getSongQuery(oppositeEmotion);
     }
-    else console.log("you fucked up somehow")
+    else console.log("you fucked up somehow :/")
 }
 
 run();

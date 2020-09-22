@@ -16,7 +16,7 @@ const ask = () =>{
         },
         {
           name: 'preferred-outcome',
-          type: 'checkbox',
+          type: 'list',
           message: 'Do you want to feel the opposite or stay the same?',
           choices: ["same", "different"],
           validate: function(value) {

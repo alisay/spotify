@@ -44,4 +44,8 @@ const showAntonyms = (data)=>{
 }
 
 
-// antonymFinder("miserable");
+
+
+module.exports = {
+    tokeniser, spellChecker, antonymFinder
+}

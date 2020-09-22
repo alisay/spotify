@@ -7,10 +7,10 @@ const ask = () =>{
           type: 'input',
           message: 'Please tell us how you are feeling',
           validate: function( value ) {
-            if (value.split(" ").length<2) {
+            if (value) {
               return true;
             } else {
-              return 'We only want a single a word to describe your current mood';
+              return 'Please describe your mood';
             }
           }
         },
@@ -23,7 +23,7 @@ const ask = () =>{
             if (value.length>0) {
               return true;
             } else {
-              return 'Just answer the question, buddy.';
+              return 'Just pick one.';
             }
           }
         }

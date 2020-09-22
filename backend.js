@@ -14,7 +14,6 @@ class Backend {
     }
     
     get(slug){
-        console.log(this.baseUrl.concat(slug))
         const result = fetch(this.baseUrl.concat(slug))
         .then(response=>response.json());
         return result;

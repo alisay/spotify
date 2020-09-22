@@ -40,8 +40,8 @@ const showAntonyms = (data)=>{
 }
     catch(err){
         console.log(err);
-    }
+    }   
 }
 
-antonymFinder(spellChecker(tokeniser("I am one misery girl")))
 
+// antonymFinder("miserable");

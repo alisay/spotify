@@ -1,3 +1,3 @@
-const emotions = require('./emotions.json')
+const emotions = require('./emotions')
 
 console.log(emotions.emotions)

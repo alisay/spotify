@@ -1,6 +1,9 @@
 const fetch = require('node-fetch');
 const open = require('open');
 
+// THESE WERE CALLING SEARCHLY BEFORE TO THEN SEARCH FOR ITUNES BUT IT KEPT FINDING
+// ERRORS WHEN A SONG WASNT ON ITUNES OR DIDNT HAVE A MATCH TO MOOD
+
 // function getSongQuery(query) {
 //     fetch("https://searchly.asuarez.dev/api/v1/song/search?query=" + query) //QUERY CAN BE ANYTHING
 //         .then(response => response.json())
@@ -25,18 +28,33 @@ const open = require('open');
 //         .catch(err => console.log(err))
 // }
 
+// THIS WAS WORKING BUT WAS JUST LOOKING FOR SONG TITLES THAT MATCHES THE MOOD
+
+// function getSongQuery(query) {
+//         fetch("https://itunes.apple.com/search?term=" + query + "&entity=song")
+//             .then(response => response.json())
+//             .then(data => {
+//                 let randomNum = Math.floor((Math.random() * (data.results.length)) / 2)
+//                 open(data.results[randomNum].trackViewUrl)
+//             })
+//             .catch(err => console.log(err))
+
+// }
+
+// RETURNS A JSON LIST OF PLAYLISTS RELATED TO THE MOOD IF 1 WORD
+
 function getSongQuery(query) {
-        fetch("https://itunes.apple.com/search?term=" + query + "&entity=song")
-            .then(response => response.json())
-            .then(data => {
-                let randomNum = Math.floor((Math.random() * (data.results.length)) / 2)
-                open(data.results[randomNum].trackViewUrl)
-            })
-            .catch(err => console.log(err))
+    fetch("https://api.deezer.com/search/playlist?q=" + query + "+music")
+        .then(response => response.json())
+        .then(data => {
+            let randomNum = Math.floor((Math.random() * (data.data.length)) / 2)
+            open(data.data[randomNum].link)
+        })
+        .catch(err => console.log(err))
 
 }
 
-// getSongQuery('the new sad')
+// getSongQuery('')
 
 module.exports = {
     getSongQuery,

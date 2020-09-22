@@ -4,16 +4,16 @@ const { tokeniser, spellChecker, antonymFinder } = require('./dictionary.js')
 
 const run = async () =>{
     const request = await prompt.ask();
-    if(request['preferred-outcome'][0]==='same'){
+    if(request['preferred-outcome']==='same'){
         controller.getSongQuery(request.mood);
     }
-    else if (request['preferred-outcome'][0]==='different'){
+    else if (request['preferred-outcome']==='different'){
         const emotion = tokeniser(request.mood);
         const validEmotion = spellChecker(emotion);
         const oppositeEmotion = await antonymFinder(validEmotion)
         controller.getSongQuery(oppositeEmotion);
     }
-    else console.log("you fucked up somehow")
+    else console.log("you fucked up somehow :/")
 }
 
 run();

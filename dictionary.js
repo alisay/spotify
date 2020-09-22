@@ -2,6 +2,8 @@ const key = require('./config.js');
 const Backend = require('./backend.js');
 const natural = require('natural');
 const dictionary = require('./emotions.js');
+const emotions = dictionary.dictionary[0]["emotions"]
+
 // const classifier = new natural.BayesClassifier();
 // const tokeniser = new natural.WordTokenizer();
 
@@ -16,13 +18,16 @@ const tokeniser = (sentence)=>{
 }
 
 const spellChecker = (words)=>{
-    const emotions = dictionary.dictionary[0]["emotions"]
     const spellcheck = new natural.Spellcheck(emotions)
     const moods = spellcheck.getCorrections(words.slice(0, 2),2);
+    console.log(`your mood is ${moods}`)
     return moods[0];
 }
 
-const antonymFinder = (word="sad")=>{
+const antonymFinder = (word)=>{
+    if(!word){
+        const word = emotions[Math.floor((Math.random() * (emotions.length-1)))]
+    }
     const thesaurus = new Backend();
     thesaurus.setBaseUrl("https://www.dictionaryapi.com/api/v3/references/thesaurus/json")
     return thesaurus.get(`/${word}?key=${key.api}`)

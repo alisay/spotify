@@ -10,7 +10,7 @@ const run = async () =>{
     else if (request['preferred-outcome'][0]==='different'){
         const emotion = tokeniser(request.mood);
         const validEmotion = spellChecker(emotion);
-        const oppositeEmotion = antonymFinder(validEmotion)
+        const oppositeEmotion = await antonymFinder(validEmotion)
         controller.getSongQuery(oppositeEmotion);
     }
     else console.log("you fucked up somehow")

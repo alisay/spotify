@@ -36,7 +36,7 @@ const showAntonyms = (data)=>{
         if(data.length<1){
         throw new Error("no antonyms")
     }
-    console.log(data[0][0]);
+    return data[0][0];
 }
     catch(err){
         console.log(err);

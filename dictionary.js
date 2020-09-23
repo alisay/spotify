@@ -23,7 +23,6 @@ const spellChecker = (words)=>{
         const hacky = emotions[Math.floor(Math.random() * (emotions.length-1))]
         return hacky;
     }
-    console.log(`Your mood is ${moods[0]}`)
     return moods[0];
 }
 

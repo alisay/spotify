@@ -9,12 +9,12 @@ clear();
 
 console.log(
     chalk.magenta(
-      figlet.textSync('The Name', { horizontalLayout: 'full' })
+      figlet.textSync('A&B Rulz Get Stufd', { horizontalLayout: 'full' })
     )
   );
   
 const run = async () =>{
-    // while(true){
+    while(true){
         const request = await prompt.ask();
         if(request['preferred-outcome']==='same'){
             controller.getSongQuery(request.mood);
@@ -24,11 +24,11 @@ const run = async () =>{
             const validEmotion = spellChecker(emotion);
             const oppositeEmotion = await antonymFinder(validEmotion)
             const reallyOppositeEmotion = await continuedAntonymFinder(oppositeEmotion)
-            console.log(`Your alternative mood is ${reallyOppositeEmotion}`)
+            oppositeEmotion === request.mood ? console.log(`Your opposite emotion is ${reallyOppositeEmotion}`) : console.log(`Your opposite emotion is ${oppositeEmotion}`)
             oppositeEmotion === request.mood ? controller.getSongQuery(reallyOppositeEmotion) : controller.getSongQuery(oppositeEmotion)
         }
         else console.log("you fucked up somehow")    
     }
-// }
+}
 
 run();

@@ -24,7 +24,7 @@ const run = async () =>{
             const validEmotion = spellChecker(emotion);
             const oppositeEmotion = await antonymFinder(validEmotion)
             const reallyOppositeEmotion = await continuedAntonymFinder(oppositeEmotion)
-            oppositeEmotion === request.mood ? console.log(`Your opposite emotion is ${reallyOppositeEmotion}`) : console.log(`Your opposite emotion is ${oppositeEmotion}`)
+            oppositeEmotion === request.mood ? console.log(`Your new emotion is ${reallyOppositeEmotion}`) : console.log(`Your new emotion is ${oppositeEmotion}`)
             oppositeEmotion === request.mood ? controller.getSongQuery(reallyOppositeEmotion) : controller.getSongQuery(oppositeEmotion)
         }
         else console.log("you fucked up somehow")    

@@ -52,7 +52,7 @@ function dealWithPromise(promise, query) {
         open(promise.data[randomNum].link);
     }
     catch(err){
-        console.log(query + ' is not a valid mood 👎 please try again');
+        console.log(`\n ${query} is not a valid mood 👎 please try again`);
         open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
     }
 }
